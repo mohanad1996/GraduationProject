@@ -1,5 +1,6 @@
 import re
 import math
+import time
 import sys
 from collections import Counter
 import nltk
@@ -39,9 +40,7 @@ def get_result(content_a, content_b):
     return cosine_result
 
 
-if __name__ == "__main__":
-    statment1 = "This is a sample sentence, showing off the stop words filtration."
-    statment2 = "This is a sample sentence, showing off the stop words filtration."
+def find_cos(statment1,statment2):
     statment1=statment1.lower();
     statment2=statment2.lower();
     word_tokens = word_tokenize(statment1)
@@ -50,6 +49,7 @@ if __name__ == "__main__":
     snow = nltk.SnowballStemmer('english')
     filtered_sentence1 = [w for w in word_tokens if not w in stop_words]
     filtered_sentence1 = []
+
 
     for w in word_tokens:
         if w not in stop_words:
@@ -76,8 +76,18 @@ if __name__ == "__main__":
 
 
 
-    print(statment1)
 
-    print(statment2)
+    #print(statment1)
 
-    print(get_result(statment1,statment2))
+    #print(statment2)
+
+    return get_result(statment1,statment2)
+
+
+
+
+start=time.time()
+
+#print(find_cos("I came to Chicago on business and was initially supposed to stay downtown; however a colleague recommended this hotel--and I am so glad that they did! The attention to detail and finishing touches in my room are what made this hotel feel like home. Staying in a smaller hotel allowed me to connect with the local Chicago vibe while simultaneously enjoying exquisite service from the staff at a fraction of what it might cost to stay in a Magnificent Mile high-rise. Considering the quality ambiance and charm of this hidden Chicago treasure it made my trip a memorable experience. Not only was I able to secure a bike rental to avoid the high cost of renting a car but I also was directed to some of the local galleries in the West Loop by the friendly staff members.","I still love this place but the took Mu Shu off the menu. Â I am deeply saddened. Show owner comment Â»"))
+
+#print(time.time()-start)

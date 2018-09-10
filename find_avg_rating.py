@@ -32,3 +32,4 @@ def get_avg_rate(id):
     #return ext_flag
 
 
+#print(get_avg_rate("bdHbRb8k9Nl18W7UBH37aQ"))
